@@ -1,0 +1,66 @@
+li{
+	color:				#990099;
+	font-size: 			16px;
+
+}
+
+a{
+	font: 				30px "Helvetica", "Arial", sans-serif;
+	font-size: 			30px;
+	cursor: 			pointer;
+	text-align: 		left;				
+	display:			block;
+}
+
+input{
+	width: 198px;
+	height: 100px;
+	
+}
+
+button{
+	width: 200px;
+	height:100px;
+	display:block;
+	cursor:pointer;
+}
+
+
+.PropertyCreation{
+	position:absolute;
+	background-color:#660088;
+	top:10px;
+	left:10px;
+	width: 200px;
+	align: center;	
+	min-height: 600px;
+	max-height: 600px;
+
+}
+
+.PropertySearch{
+	position: absolute;
+	top: 10px;
+	left: 240px;
+	background-color:#ffeeee;
+	width: 225px;
+	align: center;	
+	min-height: 600px;
+	overflow:auto;
+
+	max-height: 600px;
+	
+}
+.PropertyDisplay{
+	position: absolute;
+	top: 10px;
+	left: 480px;
+	background-color:#eeeeDD;
+	width: 220px;
+min-height: 600px;
+
+	max-height: 600px;
+	align: center;	
+	overflow:auto;
+}
+

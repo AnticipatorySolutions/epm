@@ -1,0 +1,62 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="PropertyCreation"> 
+
+	<form #f="ngForm"(ngSubmit)="addProperty(f)" novalidate>
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon"></div>
+				<input name="name" class="form-control" type="text" placeholder="Property Title" ngModel required #Title="ngModel">
+				<input name="address" class="form-control" type="text" placeholder="Address" ngModel required #Address="ngModel">
+				<input name="floors" class="form-control" type="number" min="1" placeholder="Floors" ngModel required #Floors="ngModel">
+				<input name="unitsPerFloor" class="form-control" type="number" min="1" placeholder="Units Per Floor" ngModel required #unitsPerFloor="ngModel">
+				<button>Add Property</button>
+			</div>
+		</div>	
+	</form>
+</div>
+<div class="PropertySearch"> 
+
+<form>
+	<div class="form-group">
+		<div class="input-group">
+			<div class="input-group-addon">
+			</div>
+			<input type="text" class="form-control" name="searchString"
+				placeholder="Type to search by name" [(ngModel)]="searchString">
+		</div>
+	</div>
+</form>	
+
+<table class="table">
+	<tr>
+		<th></th>
+	</tr>
+	<tr *ngFor="let prop of properties | pipeFilter:'name':searchString; let i = index;" >
+		<td>
+			<button class="PropertyButton" (click)="propertySelect($event,prop)">{{prop.name}} {{prop.address}}</button>
+		</td>
+	</tr>
+	<td></td>
+</table>
+</div>		
+		
+<div class="PropertyDisplay"> 
+			<div *ngIf="propertySelected; then active else inactive"></div>
+			<ng-template #active>
+				<p>{{ activeProperty.name }} {{activeProperty.address}}</p>
+
+				<div *ngFor="let unit of activeProperty.units">
+					
+				<button class="UnitButton" (click)="updateUnit($event,unit)">
+					number: {{unit.number}}
+					rent: ${{unit.rent}}
+					floor: {{unit.floor}}
+					vacant: {{unit.vacant}}
+				</button>
+
+			</div>
+		</ng-template>	
+		<ng-template #inactive>
+			<div>Select A Property to View Units</div>
+		</ng-template>
+</div> 
